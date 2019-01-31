@@ -2,24 +2,26 @@
 #include "StdAfx.h"
 #include "GameMain.h"
 
-/// <summary>
-/// Allows the game to perform any initialization it needs to before starting to run.
-/// This is where it can query for any required services and load all of your content.
-/// Initialize will enumerate through any components and initialize them as well.
-/// </summary>
 bool GameMain::Initialize()
 {
+	int g = 0;
 	// TODO: Add your initialization logic here
 	WindowTitle(_T("ES Game Library"));
-
-
+	map.initialize();
+	for (int x = 0; x < 10; x++) {
+		for (int y = 0; y < 10; y++) {
+			switch (map.re_map[y][x]) {
+				ground Ground;
+			case 1:
+				ground_array.push_back(Ground);
+				ground_array[g].model_Init(Vector3(x * 32, 0, y*32),(_T("wall.x")));
+				g++;
+			}
+		}
+	}
 	return true;
 }
 
-/// <summary>
-/// Finalize will be called once per game and is the place to release
-/// all resource.
-/// </summary>
 void GameMain::Finalize()
 {
 	// TODO: Add your finalization logic here
@@ -50,7 +52,9 @@ void GameMain::Draw()
 	GraphicsDevice.Clear(Color_CornflowerBlue);
 
 	GraphicsDevice.BeginScene();
-
+	for (int i = 0; i < ground_array.size(); i++) {
+		ground_array[i].Draw();
+	}
 
 	SpriteBatch.Begin();
 

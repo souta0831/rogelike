@@ -2,7 +2,8 @@
 
 #include "ESGLib.h"
 #include "GameScene/GameScene.hpp"
-
+#include"Map.h"
+#include"ground.h"
 class GameMain : public CGameScene {
 public:
 	GameMain() : DefaultFont(GraphicsDevice.CreateDefaultFont())
@@ -56,8 +57,8 @@ private:
 
 private:
 	// •Ï”éŒ¾
-
-
+	Map map;
+	std::vector<ground> ground_array;
 	// ŠÖ”éŒ¾
 
 };

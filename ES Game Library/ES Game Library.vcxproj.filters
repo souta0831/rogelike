@@ -112,11 +112,11 @@
     <Filter Include="変換用アセット">
       <UniqueIdentifier>{82621faf-8306-44c1-bdbf-bfdd763ca17c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyClass">
+      <UniqueIdentifier>{ab2af83d-44e1-4af8-af4a-056af9cdf814}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameMain.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="WinMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -256,11 +256,20 @@
     <ClCompile Include="Extension\Direct2D\Direct2D.cpp">
       <Filter>ソース ファイル\拡張\Direct2D</Filter>
     </ClCompile>
+    <ClCompile Include="GameMain.cpp">
+      <Filter>MyClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>MyClass</Filter>
+    </ClCompile>
+    <ClCompile Include="chara_base.cpp">
+      <Filter>MyClass</Filter>
+    </ClCompile>
+    <ClCompile Include="ground.cpp">
+      <Filter>MyClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameMain.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="DirectX\Audio\DXAudio8.hpp">
       <Filter>ヘッダー ファイル\DirectX\Audio</Filter>
     </ClInclude>
@@ -411,6 +420,18 @@
     </ClInclude>
     <ClInclude Include="Extension\Direct2D\Direct2D.hpp">
       <Filter>ヘッダー ファイル\拡張\Direct2D</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain.h">
+      <Filter>MyClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>MyClass</Filter>
+    </ClInclude>
+    <ClInclude Include="chara_base.h">
+      <Filter>MyClass</Filter>
+    </ClInclude>
+    <ClInclude Include="ground.h">
+      <Filter>MyClass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
