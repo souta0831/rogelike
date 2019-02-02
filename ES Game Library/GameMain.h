@@ -4,6 +4,8 @@
 #include "GameScene/GameScene.hpp"
 #include"Map.h"
 #include"ground.h"
+#include"Player.h"
+#include"Camera.h"
 class GameMain : public CGameScene {
 public:
 	GameMain() : DefaultFont(GraphicsDevice.CreateDefaultFont())
@@ -58,6 +60,8 @@ private:
 private:
 	// •Ï”éŒ¾
 	Map map;
+	Player player;
+	Camera_Manager camera_mane;
 	std::vector<ground> ground_array;
 	// ŠÖ”éŒ¾
 

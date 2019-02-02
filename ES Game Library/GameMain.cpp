@@ -7,18 +7,29 @@ bool GameMain::Initialize()
 	int g = 0;
 	// TODO: Add your initialization logic here
 	WindowTitle(_T("ES Game Library"));
-	map.initialize();
+	map.GenerateMap();//マップ生成
+	player.Initialize();//プレイヤー初期化
+	camera_mane.Initiarize();//初期化
+	//マップから読み取った情報から地形を生成
 	for (int x = 0; x < 10; x++) {
 		for (int y = 0; y < 10; y++) {
-			switch (map.re_map[y][x]) {
+			switch (map.re_map[y][x]()) {
 				ground Ground;
 			case 1:
 				ground_array.push_back(Ground);
 				ground_array[g].model_Init(Vector3(x * 32, 0, y*32),(_T("wall.x")));
 				g++;
+			case 0:
+				ground_array.push_back(Ground);
+				ground_array[g].model_Init(Vector3(x * 32, 0, y * 32), (_T("wall.x")));
+				g++;
+
+			case 9://プレイヤーを配置
+				player.SetPos(Vector3(x * 32, 0, y * 32));
 			}
 		}
 	}
+	
 	return true;
 }
 
@@ -37,8 +48,9 @@ void GameMain::Finalize()
 /// </returns>
 int GameMain::Update()
 {
-	// TODO: Add your update logic here
+	player.Update();
 
+	camera_mane.SetCameral(player.re_pos());
 
 	return 0;
 }

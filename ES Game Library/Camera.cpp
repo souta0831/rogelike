@@ -1,7 +1,7 @@
 #include"Camera.h"
-void Camera::Initiarize() {
-	
+void Camera_Manager::Initiarize() {
+	camera->SetView(Vector3(0.0f, 0.0f, 0.0f), Vector3_Down);
 }
-void Camera::Update() {
+void Camera_Manager::Update() {
 	
 }
