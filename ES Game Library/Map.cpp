@@ -1,7 +1,7 @@
 #include"Map.h"
 //‚»‚Ì‚¤‚¿ƒ‰ƒ“ƒ_ƒ€¶¬‚É‚·‚é—\’è
 void Map::GenerateMap(){
-	int map_coppy[10][10]{
+	/*int map_coppy[10][10]{
 		{1,1,1,1,1,1,1,1,1,1},
 		{1,9,0,0,0,0,0,0,0,1},
 		{1,0,0,0,0,0,0,0,0,1},
@@ -17,5 +17,5 @@ void Map::GenerateMap(){
 		for (int y = 0; y < 10; y++) {
 			map_deta[y][x] = map_coppy[y][x];
 		}
-	}
+	}*/
 }

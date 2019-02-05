@@ -1,7 +1,7 @@
 #include"Player.h"
 void Player::Initialize() {
 	//ÉÇÉfÉãì«Ç›çûÇ›
-	player = GraphicsDevice.CreateModelFromFile(_T(""));
+	player = GraphicsDevice.CreateModelFromFile(_T("Mikoto/mikoto.x"));
 	
 }
 void Player::SetPos(Vector3 pos_){

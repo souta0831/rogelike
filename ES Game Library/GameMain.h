@@ -5,7 +5,7 @@
 #include"Map.h"
 #include"ground.h"
 #include"Player.h"
-#include"Camera.h"
+#include"Camera_Manager.h"
 class GameMain : public CGameScene {
 public:
 	GameMain() : DefaultFont(GraphicsDevice.CreateDefaultFont())
@@ -63,6 +63,7 @@ private:
 	Player player;
 	Camera_Manager camera_mane;
 	std::vector<ground> ground_array;
+	
 	// ŠÖ”éŒ¾
-
+	void GenerateMap();
 };

@@ -4,35 +4,54 @@
 
 bool GameMain::Initialize()
 {
-	int g = 0;
 	// TODO: Add your initialization logic here
 	WindowTitle(_T("ES Game Library"));
-	map.GenerateMap();//マップ生成
 	player.Initialize();//プレイヤー初期化
-	camera_mane.Initiarize();//初期化
+	camera_mane.Initialize();
+	GenerateMap();//マップ初期化関数
 	//マップから読み取った情報から地形を生成
-	for (int x = 0; x < 10; x++) {
-		for (int y = 0; y < 10; y++) {
-			switch (map.re_map[y][x]()) {
-				ground Ground;
-			case 1:
-				ground_array.push_back(Ground);
-				ground_array[g].model_Init(Vector3(x * 32, 0, y*32),(_T("wall.x")));
-				g++;
-			case 0:
-				ground_array.push_back(Ground);
-				ground_array[g].model_Init(Vector3(x * 32, 0, y * 32), (_T("wall.x")));
-				g++;
-
-			case 9://プレイヤーを配置
-				player.SetPos(Vector3(x * 32, 0, y * 32));
-			}
-		}
-	}
+	
 	
 	return true;
 }
+void GameMain::GenerateMap() {
+	//map.GenerateMap();//マップ生成
+	int g = 0;
+	//地形のを大きさを初期化
+	ground_array.clear();
+	//マップ生成（あとからクラス化する）
+	int map_coppy[10][10]{
+	{ 1,1,1,1,1,1,1,1,1,1 },
+	{ 1,9,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,0,0,0,1 },
+	{ 1,0,0,0,0,0,0,0,0,1 },
+	{ 1,1,1,1,1,1,1,1,1,1 },
+	};
 
+	for (int x = 0; x < 10; x++) {
+		for (int y = 0; y < 10; y++) {
+			switch (map_coppy[y][x]) {
+				ground Ground;
+			case 1:
+				ground_array.push_back(Ground);
+				ground_array[g].model_Init(Vector3(x * 64, 0, y * 64),(_T("sand.x")));
+				g++;
+			case 0:
+				ground_array.push_back(Ground);
+				ground_array[g].model_Init(Vector3(x * 64, 0, y * 64),(_T("wall.x")));
+				g++;
+
+			case 9://プレイヤーを配置
+				player.SetPos(Vector3(x * 16, 0, y * 16));
+			}
+		}
+	}
+}
 void GameMain::Finalize()
 {
 	// TODO: Add your finalization logic here
@@ -49,8 +68,8 @@ void GameMain::Finalize()
 int GameMain::Update()
 {
 	player.Update();
-
-	camera_mane.SetCameral(player.re_pos());
+	//camera_mane.Update();//カメラ
+	//camera_mane.Pos_SetCameral(player.re_pos());//座標を取得→カメラに反映
 
 	return 0;
 }

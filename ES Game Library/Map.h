@@ -1,8 +1,8 @@
 #pragma once
-class Map {
-public:
-	void GenerateMap();
-	int*re_map() { return map_deta; };
+struct Map
+{
+void GenerateMap();
+//Map re_map() { return *this; };
 private:
-	int map_deta[10][10];
+	int *map_deta[10][10];
 };
